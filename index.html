@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>click</title>
+    </head>
+    <script>
+var clicks = localStorage.getItem("saveclicks");
+var irontappingactive = localStorage.getItem("saveirontapping1");
+var epicclicking = localStorage.getItem("saveirontapping2");
+var ironclicking = false;
+var clickclick = localStorage.getItem("saveclickclick");
+var putins = false;
+console.log("irontappingactive = "+irontappingactive);
+console.log(epicclicking);
+ document.getElementById("buy3").disabled = true;
+ document.getElementById("buy3").style.opacity = '0';
+ document.getElementById("buuy2").disabled = true;
+ document.getElementById("buuy2").style.opacity = '0';
+  document.getElementById("buy1").disabled = true;
+  document.getElementById("buy1").style.opacity = '0';
+var timer;
+
+         function onload() {
+            console.log(":)");
+             // clicks = localStorage.getItem("saveclicks");
+              //irontappingactive = localStorage.getItem("saveirontapping1");
+              
+             if (clicks == null) {
+                 clicks = 0;
+             }
+             if (clickclick == null) {
+                 clickclick = 0;
+             }
+             window.setInterval(function(){
+                
+                 clicks=parseInt(clicks);
+                 clickclick=parseInt(clickclick);
+                 clicks+=clickclick;
+                 console.log(clickclick);
+             },1000);
+             window.setInterval(function(){
+                                 document.getElementById("testtest").innerHTML = "You have " + clicks + " wands!";
+     console.log(ironclicking);
+     console.log(irontappingactive);
+        if(ironclicking == true && irontappingactive == 1) {
+                     console.log("working2");
+                 
+        if (epicclicking == 1) {
+            clicks+=1;
+            console.log("1");
+        }
+        else if (epicclicking == 2) {
+            clicks+=2;
+                        console.log("1");
+
+        }
+        else if (epicclicking == 3) {
+            clicks+=3;
+                        console.log("2");
+
+        }
+        else if (epicclicking == 4) {
+            clicks+=4;
+                        console.log("3");
+
+        }
+        else if (epicclicking == 5) {
+            clicks+=5;
+                        console.log("4");
+
+        }
+        else if (epicclicking == 6) {
+            clicks+=6;
+                        console.log("5");
+
+        }
+        else if (epicclicking == 7) {
+            clicks+=7;
+                        console.log("6");
+
+        }
+        else if (epicclicking == 8) {
+            clicks+=8;
+                        console.log("7");
+
+        }
+        else if (epicclicking == 9) {
+            clicks+=9;
+                        console.log("8");
+
+        }
+        else if (epicclicking == 10) {
+            clicks+=10;
+                        console.log("9");
+
+        }
+        else if (epicclicking == 11) {
+            clicks+=11;
+                        console.log("11");
+
+        }
+        else {
+            clicks+=12;
+                        console.log("12");
+
+            document.getElementById("irontapping").innerHTML = "MAXED";
+            document.getElementById("irontapping").disabled = true;
+            document.getElementById("irontapping").style.opacity = '.5';
+        }
+              //  document.getElementById("testtest").innerHTML = "You have " + clicks + " wands!"  
+              
+}
+document.getElementById('show').innerHTML = clickclick;
+}),1;
+}
+
+        function buy1() {
+            if (clicks > 49) {
+           document.getElementById("buy1").style.opacity = '1';
+            document.getElementById("buy1").disabled = false;
+            document.getElementById("buy1").innerHTML = "+1 wand per second";
+            }
+            if (clicks < 50) {
+           document.getElementById("buy1").style.opacity = '.5';
+            document.getElementById("buy1").disabled = true;
+            document.getElementById("buy1").innerHTML = "locked - 50";
+            }
+        }
+       
+     function updateclickbuy1() {
+             clickclick += 1;
+          //   document.getElementById("testtest").innerHTML = "You have " + clicks + " wands!";
+     } 
+     function updateclickbuy2() {
+             clickclick += 5;
+
+     } 
+         function buy2() {
+            if (clicks > 199) {
+           document.getElementById("buuy2").style.opacity = '1';
+            document.getElementById("buuy2").disabled = false;
+            document.getElementById("buuy2").innerHTML = "+5 wands per second";
+            }
+            if (clicks < 200) {
+           document.getElementById("buuy2").style.opacity = '.5';
+            document.getElementById("buuy2").disabled = true;
+
+document.getElementById("buuy2").innerHTML = "locked - 200";
+}
+}
+         function buyiron() {
+             if (epicclicking == 12) {
+                 document.getElementById("irontapping").style.opacity = '.5';
+            document.getElementById("irontapping").disabled = true;
+document.getElementById("irontapping").innerHTML = "MAXED";
+             }
+         else if (clicks > 999) {
+           document.getElementById("irontapping").style.opacity = '1';
+            document.getElementById("irontapping").disabled = false;
+            document.getElementById("irontapping").innerHTML = "Iron Clicking!!!";
+            }
+            else if (clicks < 1000) {
+           document.getElementById("irontapping").style.opacity = '.5';
+            document.getElementById("irontapping").disabled = true;
+document.getElementById("irontapping").innerHTML = "locked - 1000";
+         }
+         }
+         
+
+          
+         function buy3() {
+             if (clicks > 4999) {
+           document.getElementById("buy3").style.opacity = '1';
+            document.getElementById("buy3").disabled = false;
+            document.getElementById("buy3").innerHTML = "+150 wands per second";
+            }
+            if (clicks < 5000) {
+           document.getElementById("buy3").style.opacity = '.5';
+            document.getElementById("buy3").disabled = true;
+            document.getElementById("buy3").innerHTML = "locked - 5000";
+         }
+         }
+         function buyM() {
+             if (clicks > 99999) {
+           document.getElementById("buyM").style.opacity = '1';
+            document.getElementById("buyM").disabled = false;
+            document.getElementById("buyM").innerHTML = "+2,000 wands per second";
+            }
+            if (clicks < 100000) {
+           document.getElementById("buyM").style.opacity = '.5';
+            document.getElementById("buyM").disabled = true;
+            document.getElementById("buyM").innerHTML = "locked - 100,000";
+         }
+         }
+         function updateclickbuyM() {
+             clickclick += 2000;
+         }
+         function updateclickbuy3() {
+             clickclick += 150;
+         }
+         
+         function loading() {
+             console.log("working");
+              window.setInterval(function(){
+ buy1();
+ buy2();
+ buy3();
+ buyM();
+ buyiron();
+}),10;
+}
+        function buysomething() {
+            buy1();
+            buy2();
+            buy3();
+            buyM();
+            buyiron();
+        }
+        function gamble1() {
+    var x = Math.floor((Math.random() * 10) + 1);
+    document.getElementById("testtest").innerHTML = x;
+    if (x > 5) {
+    document.getElementById("testtest1").innerHTML = "haha you lost";
+    clicks = clicks * 0;
+    }
+    else if (x < 5) {
+    document.getElementById("testtest1").innerHTML = "WIN!!!";
+    clicks = clicks * 2;
+    }
+}
+function easteregg() {
+    clicks = clicks + 10000;
+    clicks = clicks * 2;
+    document.getElementById("eggy").disabled = true;
+    document.getElementById("eggy").style.opacity = "0"
+}
+function bang(){
+    var audio = document.getElementById("audio");
+    if (!audio.paused ) {
+       audio.currentTime = 0;
+         }
+    else {
+        audio.play();
+    }
+}
+   function save() {
+  localStorage.setItem("saveclicks", clicks);
+    localStorage.setItem("saveirontapping2", epicclicking);
+    localStorage.setItem("saveirontapping1", irontappingactive);
+localStorage.setItem("saveclickclick", clickclick);
+}
+    function showinput() {
+        document.getElementById("putin").style.opacity = "1";
+        document.getElementById("putin").disabled = false;
+    }
+    function overandover() {
+        window.setInterval(function(){ 
+    if(document.getElementById("putin").value == "secretpassword123") {
+        if(putins == false) {
+                clicks += 1000000000;
+                document.getElementById("putin").style.opacity = "0";
+        document.getElementById("putin").disabled = true;
+        document.getElementById("doomdoomdoom").style.opacity = "0";
+        document.getElementById("doomdoomdoom").disabled = true;
+        putins = true;
+        }
+            }
+        }),1;
+    }
+    function addiron() {
+        epicclicking=parseInt(epicclicking);
+    }
+    </script>
+    <style>
+        #buy1 {
+            opacity:.5;
+        }
+        #buuy2 {
+            opacity:.5;
+        }
+        #buy3 {
+            opacity:.5;
+        }
+        #irontapping {
+            opacity:.5;
+        }
+        #click {
+            cursor: pointer;
+            -webkit-user-drag: none;
+        }
+        #click:active {
+            cursor: default;
+        }
+        #gamble {
+            background-color:blue;
+            color:yellow;
+            font-weight:bold;
+        }
+        #eggy {
+            opacity:.5;
+        }
+        .small {
+            height: 40px;
+            width: 40px;
+        }
+        body {
+            background-color:white;
+        }        
+    </style>
+    <body id="body" onload="onload(), loading()" onmouseup="ironclicking=false" >
+        <img src="The Wand Maker Beta.png" alt="The Wand Maker Game"/> <br>
+       <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/15809-200.png" id="click" onClick="bang(), clicks++, buysomething()" onmousedown="ironclicking=true" >
+       <br>
+    <h1 id="testtest"> You have 0 wands! </h1>
+    <p style="display:inline">You have</p>
+    <p id="show" style="display:inline"> 0 </p>
+    <p style="display:inline">wands per second.</p>
+    <br>
+    <button id="buy1" onClick="clicks-=50, updateclickbuy1(), buy1()" disabled>+1 wand per second - 50</button> <image src="http://coh.spork.com/images/5/53/Wand.png" class="small"></image>
+    <br>
+    <button id="buuy2" onClick="clicks-=200, updateclickbuy2(), buy2()" disabled>+5 wands per second - 200</button> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdm7BFIF4UaRdaN5V_DBRHIk8zYaFZMEEhw4u5uA3r3Bxo9Txoig" class="small">
+    <br>
+    <button id="buy3" onClick="clicks-=5000, updateclickbuy3(), buy3()" disabled>+150 wands per second - 5,000</button><img src="https://vignette3.wikia.nocookie.net/logocreation/images/6/62/Wand_logo.png/revision/latest?cb=20090804112058" class="small" alt="Image result for wand png"/>
+    <br><br>
+    <button id="irontapping" onClick="clicks-=1000, irontappingactive=1, epicclicking+=1, addiron()" disabled> Iron Tapping - 1,000</button> 
+    <br>
+   
+        <button id="buyM" onClick="clicks-=100000, updateclickbuyM(), buyM()" disabled>  +2000 wands per second - 100,000</button> <img src="https://vignette2.wikia.nocookie.net/runescape2/images/3/35/Wand_of_treachery_detail.png/revision/latest?cb=20130411215229" class="small" alt="Image result for wand png"/>
+            <h1 id="testtest1">  </h1>
+            <button id="gamble" onClick="gamble1()"> Double or Nothing!!! </button>
+<audio id="audio" src="fryingpanofdoom.mp3"></audio>
+<button id="save" onClick="save()">save clicks</button>
+<br>
+<button onClick="showinput()" id="doomdoomdoom"></button>
+<input type="password" onClick="overandover()" id="putin" style="opacity: 0" disabled>
+</body>
+</html>
