@@ -5,6 +5,19 @@
         <link rel="shortcut icon" type="image/x-icon" href="http://findicons.com/files/icons/2338/reflection/128/magic_wand.png" />
     </head>
     <script>
+    //this might be removed. test first.
+    if (localStorage.getItem("saveclicks") == null) {
+        localStorage.setItem("saveclicks", 0);
+    }
+    if (localStorage.getItem("saveclickclick") == null) {
+        localStorage.setItem("saveclickclick", 0);
+    }
+    if (localStorage.getItem("savesaveirontapping2") == null) {
+        localStorage.setItem("savesaveirontapping2", 0);
+    }
+    if (localStorage.getItem("savesaveirontapping1") == null) {
+        localStorage.setItem("savesaveirontapping1", 0);
+    }
 var clicks = localStorage.getItem("saveclicks");
 var irontappingactive = localStorage.getItem("saveirontapping1");
 var epicclicking = localStorage.getItem("saveirontapping2");
@@ -13,6 +26,7 @@ var clickclick = localStorage.getItem("saveclickclick");
 var putins = false;
 console.log("irontappingactive = "+irontappingactive);
 console.log(epicclicking);
+console.log(ironclicking);
  document.getElementById("buy3").disabled = true;
  document.getElementById("buy3").style.opacity = '0';
  document.getElementById("buuy2").disabled = true;
@@ -20,9 +34,21 @@ console.log(epicclicking);
   document.getElementById("buy1").disabled = true;
   document.getElementById("buy1").style.opacity = '0';
 var timer;
-
          function onload() {
-            console.log(":)");
+               console.log("clickclick's value is: "+clickclick);
+             if (typeof clicks == "undefined"){
+                 clicks = 0
+             }
+             if (typeof irontappingactive == "undefined"){
+                 irontappingactive = 0
+             }
+             if (typeof epicclicking == "undefined"){
+                 epicclicking = 0
+             }
+             if (typeof clickclick == "undefined"){
+                 clickclick = 0
+             }
+            console.log(typeof clicks);
              // clicks = localStorage.getItem("saveclicks");
               //irontappingactive = localStorage.getItem("saveirontapping1");
               
@@ -37,84 +63,25 @@ var timer;
                  clicks=parseInt(clicks);
                  clickclick=parseInt(clickclick);
                  clicks+=clickclick;
-                 console.log(clickclick);
+                 
              },1000);
              window.setInterval(function(){
+                 console.log(clicks)
                                  document.getElementById("testtest").innerHTML = "You have " + clicks + " wands!";
-     console.log(ironclicking);
-     console.log(irontappingactive);
         if(ironclicking == true && irontappingactive == 1) {
                      console.log("working2");
-                 
-        if (epicclicking == 1) {
-            clicks+=1;
-            console.log("1");
-        }
-        else if (epicclicking == 2) {
-            clicks+=2;
-                        console.log("1");
-
-        }
-        else if (epicclicking == 3) {
-            clicks+=3;
-                        console.log("2");
-
-        }
-        else if (epicclicking == 4) {
-            clicks+=4;
-                        console.log("3");
-
-        }
-        else if (epicclicking == 5) {
-            clicks+=5;
-                        console.log("4");
-
-        }
-        else if (epicclicking == 6) {
-            clicks+=6;
-                        console.log("5");
-
-        }
-        else if (epicclicking == 7) {
-            clicks+=7;
-                        console.log("6");
-
-        }
-        else if (epicclicking == 8) {
-            clicks+=8;
-                        console.log("7");
-
-        }
-        else if (epicclicking == 9) {
-            clicks+=9;
-                        console.log("8");
-
-        }
-        else if (epicclicking == 10) {
-            clicks+=10;
-                        console.log("9");
-
-        }
-        else if (epicclicking == 11) {
-            clicks+=11;
-                        console.log("11");
-
-        }
-        else {
-            clicks+=12;
-                        console.log("12");
-
-            document.getElementById("irontapping").innerHTML = "MAXED";
-            document.getElementById("irontapping").disabled = true;
-            document.getElementById("irontapping").style.opacity = '.5';
+        clicks += epicclicking;
+         //   document.getElementById("irontapping").innerHTML = "MAXED";
+         //   document.getElementById("irontapping").disabled = true;
+         //   document.getElementById("irontapping").style.opacity = '.5';
         }
               //  document.getElementById("testtest").innerHTML = "You have " + clicks + " wands!"  
               
-}
-document.getElementById('show').innerHTML = clickclick;
-}),1;
-}
 
+document.getElementById('show').innerHTML = clickclick;
+
+},1);
+}
         function buy1() {
             if (clicks > 49) {
            document.getElementById("buy1").style.opacity = '1';
@@ -134,7 +101,6 @@ document.getElementById('show').innerHTML = clickclick;
      } 
      function updateclickbuy2() {
              clickclick += 5;
-
      } 
          function buy2() {
             if (clicks > 199) {
@@ -145,7 +111,6 @@ document.getElementById('show').innerHTML = clickclick;
             if (clicks < 200) {
            document.getElementById("buuy2").style.opacity = '.5';
             document.getElementById("buuy2").disabled = true;
-
 document.getElementById("buuy2").innerHTML = "locked - 200";
 }
 }
@@ -167,7 +132,6 @@ document.getElementById("irontapping").innerHTML = "locked - 1000";
          }
          }
          
-
           
          function buy3() {
              if (clicks > 4999) {
@@ -269,6 +233,9 @@ localStorage.setItem("saveclickclick", clickclick);
         }),1;
     }
     function addiron() {
+        clicks-=1000;
+        irontappingactive=1;
+        epicclicking+=1;
         epicclicking=parseInt(epicclicking);
     }
     </script>
@@ -323,7 +290,7 @@ localStorage.setItem("saveclickclick", clickclick);
     <br>
     <button id="buy3" onClick="clicks-=5000, updateclickbuy3(), buy3()" disabled>+150 wands per second - 5,000</button><img src="https://vignette3.wikia.nocookie.net/logocreation/images/6/62/Wand_logo.png/revision/latest?cb=20090804112058" class="small" alt="Image result for wand png"/>
     <br><br>
-    <button id="irontapping" onClick="clicks-=1000, irontappingactive=1, epicclicking+=1, addiron()" disabled> Iron Tapping - 1,000</button> 
+    <button id="irontapping" onClick="addiron()" disabled> Iron Tapping - 1,000</button> 
     <br>
    
         <button id="buyM" onClick="clicks-=100000, updateclickbuyM(), buyM()" disabled>  +2000 wands per second - 100,000</button> <img src="https://vignette2.wikia.nocookie.net/runescape2/images/3/35/Wand_of_treachery_detail.png/revision/latest?cb=20130411215229" class="small" alt="Image result for wand png"/>
