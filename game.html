@@ -12,12 +12,12 @@
     if (localStorage.getItem("saveclickclick") == null) {
         localStorage.setItem("saveclickclick", 0);
     }
-    if (localStorage.getItem("savesaveirontapping2") == null) {
-        localStorage.setItem("savesaveirontapping2", 0);
-    }
-    if (localStorage.getItem("savesaveirontapping1") == null) {
-        localStorage.setItem("savesaveirontapping1", 0);
-    }
+  //  if (localStorage.getItem("savesaveirontapping2") == null) {
+     //   localStorage.setItem("savesaveirontapping2", 0);
+//    }
+  //  if (localStorage.getItem("savesaveirontapping1") == null) {
+    //    localStorage.setItem("savesaveirontapping1", 0);
+//    }
 var clicks = localStorage.getItem("saveclicks");
 var irontappingactive = localStorage.getItem("saveirontapping1");
 var epicclicking = localStorage.getItem("saveirontapping2");
@@ -79,7 +79,24 @@ var timer;
               
 
 document.getElementById('show').innerHTML = clickclick;
-
+epicclicking=parseInt(epicclicking);
+if (epicclicking > 11) {
+                 document.getElementById("irontapping").style.opacity = '.5';
+            document.getElementById("irontapping").disabled = true;
+document.getElementById("irontapping").innerHTML = "MAXED";
+             }
+             //if (ninethousand == true) {
+               //  clicks = "OVER 9000";
+            // }
+            if (localStorage.getItem("saveirontapping2") == null || isNaN(localStorage.getItem("saveirontapping2"))) {
+        localStorage.setItem("saveirontapping2", 0);
+    }
+    if (localStorage.getItem("saveirontapping1") == null || isNaN(localStorage.getItem("saveirontapping1"))) {
+        localStorage.setItem("saveirontapping1", 0);
+    }
+    function konamicode(){
+        // check for up up down down left right left right b a with event listner, and if that happens, do the thing that gives the user an option of multiply or divide.
+    }
 },1);
 }
         function buy1() {
@@ -115,7 +132,7 @@ document.getElementById("buuy2").innerHTML = "locked - 200";
 }
 }
          function buyiron() {
-             if (epicclicking == 12) {
+             if (epicclicking > 11) {
                  document.getElementById("irontapping").style.opacity = '.5';
             document.getElementById("irontapping").disabled = true;
 document.getElementById("irontapping").innerHTML = "MAXED";
@@ -209,10 +226,16 @@ function bang(){
     }
 }
    function save() {
-  localStorage.setItem("saveclicks", clicks);
-    localStorage.setItem("saveirontapping2", epicclicking);
-    localStorage.setItem("saveirontapping1", irontappingactive);
-localStorage.setItem("saveclickclick", clickclick);
+  localStorage.setItem("saveclicks", parseInt(clicks));
+    localStorage.setItem("saveirontapping2", parseInt(epicclicking));
+    localStorage.setItem("saveirontapping1", parseInt(irontappingactive));
+localStorage.setItem("saveclickclick", parseInt(clickclick));
+if (localStorage.getItem("saveirontapping2") == null || isNaN(localStorage.getItem("saveirontapping2"))) {
+        localStorage.setItem("saveirontapping2", 0);
+    }
+    if (localStorage.getItem("saveirontapping1") == null || isNaN(localStorage.getItem("saveirontapping1"))) {
+        localStorage.setItem("saveirontapping1", 0);
+    }
 }
     function showinput() {
         document.getElementById("putin").style.opacity = "1";
@@ -230,6 +253,26 @@ localStorage.setItem("saveclickclick", clickclick);
         putins = true;
         }
             }
+            if(document.getElementById("putin").value == "supersecretpassword123") {
+        if(putins == false) {
+            var secretwands = prompt("How many wands would you like to add or multiply?");
+            var timesoradd = prompt("To multiply the last number, type multiply. To add the last number, type add or leave blank.")
+                if(isNaN(parseInt(secretwands))){
+                    secretwands = 0;
+                }
+                if(timesoradd == "multiply"){
+                    clicks *= parseInt(secretwands);
+                }
+                else{
+                clicks += parseInt(secretwands);
+                }
+                document.getElementById("putin").style.opacity = "0";
+        document.getElementById("putin").disabled = true;
+        document.getElementById("doomdoomdoom").style.opacity = "0";
+        document.getElementById("doomdoomdoom").disabled = true;
+        putins = true;
+        }
+            }
         }),1;
     }
     function addiron() {
@@ -237,6 +280,12 @@ localStorage.setItem("saveclickclick", clickclick);
         irontappingactive=1;
         epicclicking+=1;
         epicclicking=parseInt(epicclicking);
+        if (localStorage.getItem("saveirontapping2") == null || isNaN(localStorage.getItem("saveirontapping2"))) {
+        localStorage.setItem("saveirontapping2", 0);
+    }
+    if (localStorage.getItem("saveirontapping1") == null || isNaN(localStorage.getItem("saveirontapping1"))) {
+        localStorage.setItem("saveirontapping1", 0);
+    }
     }
     </script>
     <style>
@@ -276,7 +325,7 @@ localStorage.setItem("saveclickclick", clickclick);
         }        
     </style>
     <body id="body" onload="onload(), loading()" onmouseup="ironclicking=false" >
-        <img src="https://preview.c9users.io/fastpenguin/mywebsite/Wand%20Maker%20Game.png" alt="The Wand Maker Game"/> <br>
+        <img src="Wand Maker Game.png" alt="The Wand Maker Game"/> <br>
        <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/15809-200.png" id="click" onClick="bang(), clicks++, buysomething()" onmousedown="ironclicking=true" >
        <br>
     <h1 id="testtest"> You have 0 wands! </h1>
@@ -299,7 +348,7 @@ localStorage.setItem("saveclickclick", clickclick);
 <audio id="audio" src="fryingpanofdoom.mp3"></audio>
 <button id="save" onClick="save()">save clicks</button>
 <br>
-<button onClick="showinput()" id="doomdoomdoom"></button>
+<button onClick="showinput(), ninethousand = true" id="doomdoomdoom"></button>
 <input type="password" onClick="overandover()" id="putin" style="opacity: 0" disabled>
         <h4> Tell your friends!!! </h4>
         <h7> Special thanks to Leo, Kai, Reid and Elliott for testing Wand Maker in it's Alpha and Beta stage.</h7>
