@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+awesome title
+</title>
+<script>
+function post() {
+    var input = document.getElementById('input').value
+var node = document.createElement("LI");
+                    var textnode = document.createTextNode(input);
+                    node.appendChild(textnode);
+                    document.getElementById("lister").appendChild(node);
+                    return false;
+
+}
+document.getElementById('superform').onsubmit = post()
+</script>
+<style>
+html {
+    background-color: #0059ff;
+}
+#divofdoom {
+    outline: black dotted 1px;
+}
+body {
+       padding: 5%;
+}
+#divofdoom {
+     overflow: scroll;
+     height: 60vh;
+}
+li {
+    color: black;
+}
+li:nth-child(odd) {
+    background-color: #0000ff;
+}
+li:nth-child(even) {
+    background-color: #00bbff ;
+}
+</style>
+</head>
+<body>
+    <h1> Fastpenguin's Chat Website</h1>
+    <div id="divofdoom">
+        <ul id="lister">
+        </ul>
+    </div>
+    <br>
+
+        <input type="text" id="input" placeholder="Enter text to post here">
+        <br>
+        <br>
+        <button id="post" type="button" onClick="post()"> post </button>
+</body>
+</html>
