@@ -19,7 +19,7 @@ awesome title
 </script>
 <script>
 
-var doom
+var doom;
 // https://radialasymmetry.com/firebase/simpleDisplay.js
 var thedata = firebase.database().ref().child("chat");
 thedata.on("value", snap =>{ 
@@ -28,18 +28,19 @@ var node = document.createElement("LI");
                     var textnode = document.createTextNode(doom);
                     node.appendChild(textnode);
                     document.getElementById("lister").appendChild(node);
-                    return false;
+              //      return false;
 })
 function post() {
- var thedata = firebase.database().ref().child("chat");
-thedata.on("value", snap =>{ 
+    console.log("should work")
+         thedata.set(document.getElementById("input1").value);
+// thedata = firebase.database().ref().child("chat");
+thedata("value", snap =>{ 
     doom = snap.val();
-      thedata.set(document.getElementById("input1").value);
 var node = document.createElement("LI");
                     var textnode = document.createTextNode(doom);
                     node.appendChild(textnode);
                     document.getElementById("lister").appendChild(node);
-                    return false;
+            //        return false;
 })
 }
 
