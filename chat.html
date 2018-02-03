@@ -19,11 +19,14 @@ awesome title
 </script>
 <script>
 
-var doom;
+var doom
 // https://radialasymmetry.com/firebase/simpleDisplay.js
 var thedata = firebase.database().ref().child("chat");
+thedata.on("value", snap => doom = snap.val())
 function post() {
+    
    thedata.set(document.getElementById("input1").value);
+   thedata.on('value', snap =>console.log(snap.val()))
 var node = document.createElement("LI");
                     var textnode = document.createTextNode(doom);
                     node.appendChild(textnode);
@@ -31,7 +34,7 @@ var node = document.createElement("LI");
                     return false;
 
 }
-thedata.on("value", snap => doom = snap.val())
+
 
 </script>
 <style>
