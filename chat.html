@@ -4,24 +4,42 @@
 <title>
 awesome title
 </title>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBQVbOqrVuxsIMgr1AFXzezopYLUWWcZiI",
+    authDomain: "chatsite-1.firebaseapp.com",
+    databaseURL: "https://chatsite-1.firebaseio.com",
+    projectId: "chatsite-1",
+    storageBucket: "chatsite-1.appspot.com",
+    messagingSenderId: "1014215933095"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+
+var doom;
+// https://radialasymmetry.com/firebase/simpleDisplay.js
+var thedata = firebase.database().ref().child("chat");
 function post() {
-    var input = document.getElementById('input').value
+   thedata.set(document.getElementById("input1").value);
 var node = document.createElement("LI");
-                    var textnode = document.createTextNode(input);
+                    var textnode = document.createTextNode(doom);
                     node.appendChild(textnode);
                     document.getElementById("lister").appendChild(node);
                     return false;
 
 }
-document.getElementById('superform').onsubmit = post()
+thedata.on("value", snap => doom = snap.val())
+
 </script>
 <style>
 html {
     background-color: #0059ff;
 }
 #divofdoom {
-    outline: black dotted 3px;
+    outline: black dotted 1px;
 }
 body {
        padding: 5%;
@@ -39,6 +57,9 @@ li:nth-child(odd) {
 li:nth-child(even) {
     background-color: #00bbff ;
 }
+ul {
+    list-style-type:none;
+}
 </style>
 </head>
 <body>
@@ -49,7 +70,7 @@ li:nth-child(even) {
     </div>
     <br>
 
-        <input type="text" id="input" placeholder="Enter text to post here">
+        <input type="text" id="input1" placeholder="Enter text to post here">
         <br>
         <br>
         <button id="post" type="button" onClick="post()"> post </button>
