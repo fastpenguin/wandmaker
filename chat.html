@@ -22,17 +22,25 @@ awesome title
 var doom
 // https://radialasymmetry.com/firebase/simpleDisplay.js
 var thedata = firebase.database().ref().child("chat");
-thedata.on("value", snap => doom = snap.val())
-function post() {
-    
-   thedata.set(document.getElementById("input1").value);
-   thedata.on('value', snap =>console.log(snap.val()))
+thedata.on("value", snap =>{ 
+    doom = snap.val();
 var node = document.createElement("LI");
                     var textnode = document.createTextNode(doom);
                     node.appendChild(textnode);
                     document.getElementById("lister").appendChild(node);
                     return false;
-
+})
+function post() {
+ var thedata = firebase.database().ref().child("chat");
+thedata.on("value", snap =>{ 
+    doom = snap.val();
+      thedata.set(document.getElementById("input1").value);
+var node = document.createElement("LI");
+                    var textnode = document.createTextNode(doom);
+                    node.appendChild(textnode);
+                    document.getElementById("lister").appendChild(node);
+                    return false;
+})
 }
 
 
