@@ -2,8 +2,11 @@
 <html>
 <head>
 <title>
-awesome title
+FastChat
 </title>
+
+<link rel="icon" type="image/png" href="FC.png"/>
+
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -40,10 +43,13 @@ var node = document.createElement("LI");
                     var textnode = document.createTextNode(doom);
                     node.appendChild(textnode);
                     document.getElementById("lister").appendChild(node);
+                   
             //        return false;
 })
 }
-
+function clearField() {
+    console.log("yeah")
+}
 
 </script>
 <style>
@@ -64,7 +70,7 @@ li {
     color: black;
 }
 li:nth-child(odd) {
-    background-color: #0000ff;
+    background-color: orange;
 }
 li:nth-child(even) {
     background-color: #00bbff ;
@@ -75,14 +81,14 @@ ul {
 </style>
 </head>
 <body>
-    <h1> Fastpenguin's Chat Website</h1>
+    <img src="http://r73.cooltext.com/rendered/cooltext274928390030308.png">
     <div id="divofdoom">
         <ul id="lister">
         </ul>
     </div>
     <br>
 
-        <input type="text" id="input1" placeholder="Enter text to post here">
+        <input type="text" id="input1" placeholder="Enter text to post here" onFocus="this.value=''">
         <br>
         <br>
         <button id="post" type="button" onClick="post()"> post </button>
