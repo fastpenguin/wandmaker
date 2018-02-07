@@ -21,7 +21,11 @@ FastChat
   firebase.initializeApp(config);
 </script>
 <script>
-
+window.setTimeout( function(){var node = document.createElement("LI");
+                    var textnode = document.createTextNode("FastChat is now in Beta Stage!!!");
+                    node.appendChild(textnode);
+                    document.getElementById("lister").appendChild(node);
+}),1000;
 var doom;
 // https://radialasymmetry.com/firebase/simpleDisplay.js
 var thedata = firebase.database().ref().child("chat");
