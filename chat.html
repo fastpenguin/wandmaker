@@ -21,6 +21,10 @@ FastChat
   firebase.initializeApp(config);
 </script>
 <script>
+  var node = document.createElement("LI");
+                    var textnode = document.createTextNode("FastChat is now in it's Beta Stage!");
+                    node.appendChild(textnode);
+                    document.getElementById("lister").appendChild(node);
 var text;
 // https://radialasymmetry.com/firebase/simpleDisplay.js
 var thedata = firebase.database().ref().child("name");
@@ -88,7 +92,7 @@ ul {
 </style> 
 </head>
 <body>
-    <img src="http://r73.cooltext.com/rendered/cooltext274928390030308.png">
+    <img src="cooltext275209055084017.png">
     <div id="divofdoom">
         <ul id="lister">
         </ul>
