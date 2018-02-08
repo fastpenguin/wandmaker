@@ -5,7 +5,7 @@
 FastChat
 </title>
 
-<link rel="icon" type="image/png" href="https://i.imgur.com/RbTs4kq.png"/>
+<link rel="icon" type="image/png" href="FC.png"/>
 
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script>
@@ -21,40 +21,42 @@ FastChat
   firebase.initializeApp(config);
 </script>
 <script>
-  var name = prompt("Before we start, what is your name?")
-window.setTimeout( function(){var node = document.createElement("LI");
-                    var textnode = document.createTextNode("FastChat is now in Beta Stage!!!");
-                    node.appendChild(textnode);
-                    document.getElementById("lister").appendChild(node);
-}),1000;
-var doom;
+var text;
 // https://radialasymmetry.com/firebase/simpleDisplay.js
-var thedata = firebase.database().ref().child("chat");
+var thedata = firebase.database().ref().child("name");
+//var thename = firebase.database().ref().child("name")
+var name = prompt("Before we start, what is your name?")
 thedata.on("value", snap =>{ 
-    doom = snap.val();
+    text = snap.val();
 var node = document.createElement("LI");
-                    var textnode = document.createTextNode(doom);
+                    var textnode = document.createTextNode(text);
                     node.appendChild(textnode);
                     document.getElementById("lister").appendChild(node);
               //      return false;
 })
 function post() {
+    
     console.log("should work")
-         thedata.set(document.getElementById("input1").value + "  - " + name);
+         thedata.set(document.getElementById("input1").value + " - " + name);
+         //thename.set(name);
 // thedata = firebase.database().ref().child("chat");
-thedata("value", snap =>{ 
-    doom = snap.val();
+thedata("value", snap =>{
+    text = snap.val();
+  //  name = snap.val()
 var node = document.createElement("LI");
-                    var textnode = document.createTextNode(doom);
+                    var textnode = document.createTextNode(text + name);
                     node.appendChild(textnode);
                     document.getElementById("lister").appendChild(node);
-                   
             //        return false;
 })
 }
 function clearField() {
     console.log("yeah")
 }
+
+// submit on enter
+//var post = document.getElementById("post");
+//post.addEventListener("click", clearField)
 
 </script>
 <style>
@@ -83,10 +85,10 @@ li:nth-child(even) {
 ul {
     list-style-type:none;
 }
-</style>
+</style> 
 </head>
 <body>
-    <img src="cooltext275209055084017.png">
+    <img src="http://r73.cooltext.com/rendered/cooltext274928390030308.png">
     <div id="divofdoom">
         <ul id="lister">
         </ul>
