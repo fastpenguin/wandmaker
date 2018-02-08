@@ -21,6 +21,7 @@ FastChat
   firebase.initializeApp(config);
 </script>
 <script>
+  var name = prompt("Before we start, what is your name?")
 window.setTimeout( function(){var node = document.createElement("LI");
                     var textnode = document.createTextNode("FastChat is now in Beta Stage!!!");
                     node.appendChild(textnode);
@@ -39,7 +40,7 @@ var node = document.createElement("LI");
 })
 function post() {
     console.log("should work")
-         thedata.set(document.getElementById("input1").value);
+         thedata.set(document.getElementById("input1").value + "  - " + name);
 // thedata = firebase.database().ref().child("chat");
 thedata("value", snap =>{ 
     doom = snap.val();
