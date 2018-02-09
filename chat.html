@@ -21,6 +21,12 @@ FastChat
   firebase.initializeApp(config);
 </script>
 <script>
+var d = new Date();
+var h = d.getHours() + 1;
+var t = d.getMinutes();
+var s = d.getSeconds();
+var formattedNumber = ("0" + t).slice(-2);
+var formattedNumber123 = ("0" + s).slice(-2);
 var text;
 // https://radialasymmetry.com/firebase/simpleDisplay.js
 var thedata = firebase.database().ref().child("name");
@@ -35,9 +41,15 @@ var node = document.createElement("LI");
               //      return false;
 })
 function post() {
-    
+    var d = new Date();
+h = d.getHours() + 1;
+t = d.getMinutes();
+s = d.getSeconds();
+formattedNumber = ("0" + t).slice(-2);
+formattedNumber123 = ("0" + s).slice(-2);
+
     console.log("should work")
-         thedata.set(document.getElementById("input1").value + " - " + name);
+         thedata.set(document.getElementById("input1").value + " - " + name + "   " + h + ":" + formattedNumber + ":" + formattedNumber123);
          //thename.set(name);
 // thedata = firebase.database().ref().child("chat");
 thedata("value", snap =>{
@@ -53,11 +65,9 @@ var node = document.createElement("LI");
 function clearField() {
     console.log("yeah")
 }
-
 // submit on enter
 //var post = document.getElementById("post");
 //post.addEventListener("click", clearField)
-
 </script>
 <style>
 html {
@@ -88,13 +98,12 @@ ul {
   #post {
            display:none;
   }
-  #worky {
+  #label {
              border: 1px solid #BDBDBD;
-    background-color: #a3a3a3;
     display: inline-block;
     padding: 3px 6px; 
         }
-        #worky:hover {
+        #label:hover {
              border: 1px solid #000000;
              background-color: #D8D8D8;
     display: inline-block;
@@ -113,7 +122,7 @@ ul {
         <input type="text" id="input1" placeholder="Enter text to post here" onFocus="this.value=''">
         <br>
         <br>
-  <label id="worky" value="post">
+  <label id="label">
     Post
         <button id="post" type="button" onClick="post()"> post </button>
   </label>
