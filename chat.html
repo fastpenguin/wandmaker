@@ -86,10 +86,18 @@ ul {
     list-style-type:none;
 }
   #post {
-           background-color: #E6E6E6;
-       }
-        #post:hover {
-            background-color: #bcbaba;
+           display:none;
+  }
+  label {
+             border: 1px solid #BDBDBD;
+    display: inline-block;
+    padding: 3px 6px; 
+        }
+        label:hover {
+             border: 1px solid #000000;
+             background-color: #D8D8D8;
+    display: inline-block;
+    padding: 3px 6px; 
         }
 </style> 
 </head>
@@ -104,6 +112,8 @@ ul {
         <input type="text" id="input1" placeholder="Enter text to post here" onFocus="this.value=''">
         <br>
         <br>
+  <label>
         <button id="post" type="button" onClick="post()"> post </button>
+  </label>
 </body>
 </html>
