@@ -24,6 +24,7 @@ FastChat
   firebase.initializeApp(config);
 </script>
 <script>
+console.log("working");
 var d = new Date();
 var h = d.getHours();
 var t = d.getMinutes();
