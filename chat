@@ -11,12 +11,15 @@ FastChat
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyBQVbOqrVuxsIMgr1AFXzezopYLUWWcZiI",
-    authDomain: "chatsite-1.firebaseapp.com",
-    databaseURL: "https://chatsite-1.firebaseio.com",
-    projectId: "chatsite-1",
-    storageBucket: "chatsite-1.appspot.com",
-    messagingSenderId: "1014215933095"
+    apiKey: "AIzaSyAqjlDXAe-Qi4NRENrozgZchz4NvhJ0wCI",
+    authDomain: "fastpenguinchat.firebaseapp.com",
+    databaseURL: "https://fastpenguinchat.firebaseio.com",
+    projectId: "fastpenguinchat",
+    storageBucket: "fastpenguinchat.appspot.com",
+    messagingSenderId: "1051979969843"
+  };
+  firebase.initializeApp(config);
+</script>rId: "1014215933095"
   };
   firebase.initializeApp(config);
 </script>
