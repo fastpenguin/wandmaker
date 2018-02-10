@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+FastChat
+</title>
+
+<link rel="icon" type="image/png" href="FC.png"/>
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBQVbOqrVuxsIMgr1AFXzezopYLUWWcZiI",
+    authDomain: "chatsite-1.firebaseapp.com",
+    databaseURL: "https://chatsite-1.firebaseio.com",
+    projectId: "chatsite-1",
+    storageBucket: "chatsite-1.appspot.com",
+    messagingSenderId: "1014215933095"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+var d = new Date();
+var h = d.getHours();
+var t = d.getMinutes();
+var s = d.getSeconds();
+var formattedNumber = ("0" + t).slice(-2);
+var formattedNumber123 = ("0" + s).slice(-2);
+var text;
+// https://radialasymmetry.com/firebase/simpleDisplay.js
+var thedata = firebase.database().ref().child("name");
+//var thename = firebase.database().ref().child("name")
+var name = prompt("Before we start, what is your name?")
+thedata.on("value", snap =>{ 
+    text = snap.val();
+var node = document.createElement("LI");
+                    var textnode = document.createTextNode(text);
+                    node.appendChild(textnode);
+                    document.getElementById("lister").appendChild(node);
+              //      return false;
+})
+function post() {
+    var d = new Date();
+h = d.getHours() + 1;
+t = d.getMinutes();
+s = d.getSeconds();
+formattedNumber = ("0" + t).slice(-2);
+formattedNumber123 = ("0" + s).slice(-2);
+    console.log("should work")
+         thedata.set(document.getElementById("input1").value + " - " + name + "   " + h + ":" + formattedNumber + ":" + formattedNumber123);
+         //thename.set(name);
+// thedata = firebase.database().ref().child("chat");
+thedata("value", snap =>{
+    text = snap.val();
+  //  name = snap.val()
+var node = document.createElement("LI");
+                    var textnode = document.createTextNode(text + name);
+                    node.appendChild(textnode);
+                    document.getElementById("lister").appendChild(node);
+            //        return false;
+})
+}
+function clearField() {
+    console.log("yeah")
+}
+// submit on enter
+//var post = document.getElementById("post");
+//post.addEventListener("click", clearField)
+</script>
+<style>
+html {
+    background-color: #0059ff;
+}
+#divofdoom {
+    outline: black dotted 1px;
+}
+body {
+       padding: 5%;
+}
+#divofdoom {
+     overflow: scroll;
+     height: 60vh;
+}
+li {
+    color: black;
+}
+li:nth-child(odd) {
+    background-color: orange;
+}
+li:nth-child(even) {
+    background-color: #00bbff ;
+}
+ul {
+    list-style-type:none;
+}
+  #post {
+           display:none;
+  }
+  #label {
+             border: 1px solid #BDBDBD;
+    display: inline-block;
+    padding: 3px 6px; 
+        }
+        #label:hover {
+             border: 1px solid #000000;
+             background-color: #D8D8D8;
+    display: inline-block;
+    padding: 3px 6px;
+        }
+</style> 
+</head>
+<body>
+    <img src="cooltext275209055084017.png">
+    <div id="divofdoom">
+        <ul id="lister">
+        </ul>
+    </div>
+    <br>
+
+        <input type="text" id="input1" placeholder="Enter text to post here" onFocus="this.value=''">
+        <br>
+        <br>
+  <label id="label">
+    Post
+        <button id="post" type="button" onClick="post()"> post </button>
+  </label>
+</body>
+</html>
