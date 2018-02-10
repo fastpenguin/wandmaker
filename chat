@@ -53,7 +53,7 @@ formattedNumber123 = ("0" + s).slice(-2);
     console.log("should work")
          thedata.set(document.getElementById("input1").value + " - " + name + "   " + h + ":" + formattedNumber + ":" + formattedNumber123);
          //thename.set(name);
-// thedata = firebase.database().ref().child("chat");
+// thedata = firebase.database().ref().child("chat2");
 thedata("value", snap =>{
     text = snap.val();
   //  name = snap.val()
