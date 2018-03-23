@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+</head>
+<body>
+
+<h1 id="demo"> Fastpenguin's Countdown </h1>
+
+<script>
+// Set the date we're counting down to
+console.log(document.getElementsByClassName("labeler").value)
+function counter() {
+    document.getElementById("one").style.animation = 'opacityChanger 1s';
+    document.getElementById("two").style.animation = 'opacityChanger 1s';
+    document.getElementById("three").style.animation = 'opacityChanger 1s';
+    document.getElementById("four").style.animation = 'opacityChanger 1s';
+    document.getElementById("five").style.animation = 'opacityChanger 1s';
+     document.getElementById("labeler1").style.animation = 'opacityChanger 1s';
+     document.getElementById("labeler2").style.animation = 'opacityChanger 1s';
+     document.getElementById("labeler3").style.animation = 'opacityChanger 1s';
+     document.getElementById("labeler4").style.animation = 'opacityChanger 1s';
+    
+    window.setTimeout(function(){ 
+    document.getElementById("one").style.opacity = 0
+    document.getElementById("two").style.opacity = 0
+    document.getElementById("three").style.opacity = 0
+    document.getElementById("four").style.opacity = 0 
+    document.getElementById("five").style.opacity = 0
+    document.getElementById("labeler1").style.opacity = 0
+    document.getElementById("labeler2").style.opacity = 0
+    document.getElementById("labeler3").style.opacity = 0
+    document.getElementById("labeler4").style.opacity = 0
+    document.getElementById("one").disabled = true
+    document.getElementById("two").disabled = true
+    document.getElementById("three").disabled = true
+    document.getElementById("four").disabled = true
+    document.getElementById("five").disabled = true
+        
+    },1000 )
+    
+    var month = document.getElementById("one").value;
+    var day = document.getElementById("two").value;
+    var year = document.getElementById("three").value
+    var hour = document.getElementById("four").value
+    var date = month + " " + day + ", " + year + " " + hour;
+    console.log(date);
+ 
+var countDownDate = new Date(date).getTime();
+//if (isNaN(date) || date == null) {
+    
+    
+//}
+//else {
+var name = prompt("What are you counting down to?")
+if (name == "birthday") {
+    name = "your birthday"
+}
+if (name == "Alastair's birthday") {
+    name = "your birthday"
+}
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    console.log(distance)
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % ((1000 * 60)) / 1000));
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = "It's only " + days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s " + " until " + name + "!";
+    console.log("It's only " + days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s " + " until " + name + "!")
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "It's " + name + "!";
+    }
+
+if (distance <= 60000 && distance >= 59000) {
+    alert("Only 1 minute until " + name + "!!!")
+    return false
+}
+}, 1000);
+}
+//}
+</script>
+<style>
+@keyframes opacityChanger {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+    #demo {
+        color: blue;
+        text-shadow: 2px 1px #00d8ff;
+        font-family: 'Coiny', cursive;
+         text-align: center;
+  font-size: 60px;
+  margin-top:0px;
+    }
+    html {
+        background-color:black;
+    }
+ button {
+     position:absolute;
+     height:6%;
+     width:10%;
+     font-family: 'Coiny', cursive;
+ }
+ h4 {
+     color:white;
+     font-family: 'Coiny';
+     display:inline;
+ }
+</style>
+<h4 class="labeler" id="labeler1">month</h4>
+<select id="one">
+          <option selected>Month</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
+        <br>
+      <h4 class="labeler" id="labeler2">day</h4>  <select id="two">
+          <option selected> Day </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+        </select>
+        <br>
+      <h4 class="labeler" id="labeler3">year</h4>  <select id="three">
+            <option> Year </option>
+            <option value="2018"> 2018 </option>
+            <option> 2019 </option>
+            <option> 2020 </option>
+            <option> 2021 </option>
+            <option> 2022 </option>
+            <option> 2023 </option>
+            <option> 2024 </option>
+            <option> 2025 </option>
+            <option> 2026 </option>
+            <option> 2027 </option>
+            <option> 2028 </option>
+            <option> 2029 </option>
+            <option> 2030 </option>
+            <option> 2031 </option>
+            <option> 2032 </option>
+            <option> 2033 </option>
+            <option> 2034 </option>
+            <option> 2035 </option>
+            <option> 2036 </option>
+            <option> 2037 </option>
+            <option> 2038 </option>
+            <option> 2039 </option>
+            <option> 2040 </option>
+            <option> 2041 </option>
+            <option> 2042 </option>
+            <option> 2043 </option>
+            <option> 2044 </option>
+            <option> 2045 </option>
+            <option> 2046 </option>
+            <option> 2047 </option>
+            <option> 2048 </option>
+            <option> 2049 </option>
+            <option> 2050 </option>
+            <option> 2051 </option>
+            <option> 2052 </option>
+            <option> 2053 </option>
+            <option> 2054 </option>
+            <option> 2055 </option>
+            <option> 2056 </option>
+            <option> 2057 </option>
+            <option> 2058 </option>
+        </select>
+        <br>
+        <h4 class="labeler" id="labeler4">time</h4>
+       
+        <input type="time" id="four" step="1"></input>
+        <br>
+        <br>
+        <br>
+        <button id="five" onClick="counter()">Generate Countdown</button>
+</body>
+</html>
